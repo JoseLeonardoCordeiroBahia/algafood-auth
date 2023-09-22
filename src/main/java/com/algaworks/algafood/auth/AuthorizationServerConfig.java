@@ -43,6 +43,12 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 				.redirectUris("http://localhost:8082")
 				
 			.and()
+				.withClient("webadmin")
+				.authorizedGrantTypes("implicit")
+				.scopes("write", "read")
+				.redirectUris("http://aplicaco-cliente")
+				
+			.and()
 				.withClient("faturamento")
 				.secret(passwordEncoder.encode("faturamento123"))
 				.authorizedGrantTypes("client_credentials")
